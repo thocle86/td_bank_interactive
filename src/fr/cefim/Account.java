@@ -4,11 +4,11 @@ public class Account {
 
     private int accountNumber;
     private static int numberAccounts;
-    private float sold;
+    private float balance;
 
     Account() {
         this.accountNumber = ++numberAccounts;
-        this.sold = 100;
+        this.balance = 100;
     }
 
     /* COMMON GETTERS */
@@ -20,8 +20,8 @@ public class Account {
         return numberAccounts;
     }
 
-    public float getSold() {
-        return sold;
+    public float getBalance() {
+        return balance;
     }
 
     /* COMMON SETTERS */
@@ -34,21 +34,50 @@ public class Account {
         Account.numberAccounts = numberAccounts;
     }
 
-    public void setSold(float sold) {
-        this.sold = sold;
+    public void setBalance(float balance) {
+        this.balance = balance;
     }
 
     /* SPECIAL METHODS */
 
     public void deposit(float value) {
-        sold += value;
+        balance += value;
+        String response = "";
+        response += "*** DEPOSIT OPERATION ***" + "\n";
+        response += "   -> account number : " + accountNumber + "\n";
+        response += "   -> deposit of : +" + value + "\n";
+        System.out.println(response);
     }
 
     public void withdrawal(float value) {
-        sold -= value;
+        balance -= value;
+        String response = "";
+        response += "*** WITHDRAWAL OPERATION ***" + "\n";
+        response += "   -> account number : " + accountNumber + "\n";
+        response += "   -> withdrawal of : -" + value + "\n";
+        System.out.println(response);
     }
 
-    public void displaySold() {
-        System.out.println(sold);
+    public void displayBalance() {
+        String response = "";
+        response += "*** BALANCE OPERATION ***" + "\n";
+        response += "   -> account number : " + accountNumber + "\n";
+        if (balance >= 0) {
+            response += "   -> your balance is : +" + balance + "\n";
+        } else {
+            response += "   -> your balance is : -" + balance + "\n";
+        }
+        System.out.println(response);
+    }
+
+    public void payment(float value, Account recipient) {
+        balance -= value;
+        recipient.deposit(value);
+        String response = "";
+        response += "*** PAYMENT OPERATION ***" + "\n";
+        response += "   -> account number : " + accountNumber + "\n";
+        response += "   -> payment of : +" + value + "\n";
+        response += "   -> account recipient : " + recipient.getAccountNumber() + "\n";
+        System.out.println(response);
     }
 }
