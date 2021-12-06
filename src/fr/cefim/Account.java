@@ -16,26 +16,8 @@ public class Account {
         return accountNumber;
     }
 
-    public static int getNumberAccounts() {
-        return numberAccounts;
-    }
-
     public float getBalance() {
         return balance;
-    }
-
-    /* COMMON SETTERS */
-
-    public void setAccountNumber(int accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public static void setNumberAccounts(int numberAccounts) {
-        Account.numberAccounts = numberAccounts;
-    }
-
-    public void setBalance(float balance) {
-        this.balance = balance;
     }
 
     /* SPECIAL METHODS */

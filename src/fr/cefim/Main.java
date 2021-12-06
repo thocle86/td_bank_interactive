@@ -21,5 +21,11 @@ public class Main {
         account1.payment(100, account2);
         account1.displayBalance();
         account2.displayBalance();
+
+        System.out.println("-------------------------------------------");
+        System.out.println("Part 2.1 - Client creation");
+        System.out.println("-------------------------------------------");
+        Client client1 = new Client("Dupont");
+        client1.displayBalanceAccount();
     }
 }
